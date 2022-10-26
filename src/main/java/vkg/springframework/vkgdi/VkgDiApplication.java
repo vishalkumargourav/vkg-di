@@ -3,16 +3,16 @@ package vkg.springframework.vkgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import vkg.springframework.vkgdi.controllers.ConstructorInjectedController;
-import vkg.springframework.vkgdi.controllers.MyController;
-import vkg.springframework.vkgdi.controllers.PropertyInjectedController;
-import vkg.springframework.vkgdi.controllers.SetterInjectedController;
+import vkg.springframework.vkgdi.controllers.*;
 
 @SpringBootApplication
 public class VkgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(VkgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
