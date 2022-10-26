@@ -1,5 +1,6 @@
 package vkg.springframework.vkgdi.controllers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import vkg.springframework.vkgdi.services.GreetingService;
 
@@ -7,7 +8,7 @@ import vkg.springframework.vkgdi.services.GreetingService;
 public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
