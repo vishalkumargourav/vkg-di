@@ -1,9 +1,6 @@
 package vkg.springframework.vkgdi.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import vkg.springframework.pets.DogPetService;
 import vkg.springframework.pets.PetService;
 import vkg.springframework.pets.PetServiceFactory;
@@ -13,10 +10,12 @@ import vkg.springframework.vkgdi.services.ConstructorInjectedGreetingService;
 import vkg.springframework.vkgdi.services.PropertyInjectedGreetingService;
 import vkg.springframework.vkgdi.services.SetterInjectedGreetingService;
 
+@ImportResource("classpath:vkgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
-    @Bean
+    // @Bean
+    // The bean for this is defined in XML Config file : vkgdi-config.xml
     ConstructorInjectedGreetingService constructorInjectedGreetingService(){
         return new ConstructorInjectedGreetingService();
     }
