@@ -3,18 +3,17 @@ package vkg.springframework.vkgdi.controllers;
 import org.springframework.stereotype.Controller;
 import vkg.springframework.pets.CatPetService;
 import vkg.springframework.pets.DogPetService;
+import vkg.springframework.pets.PetService;
 
 @Controller
 public class PetController {
-    private final CatPetService catPetService;
-    private final DogPetService dogPetService;
+    private final PetService petService;
 
-    public PetController(CatPetService catPetService, DogPetService dogPetService) {
-        this.catPetService = catPetService;
-        this.dogPetService = dogPetService;
+    public PetController(PetService petService) {
+        this.petService = petService;
     }
 
     public String findBestPet(){
-        return catPetService.getPetService();
+        return petService.getPetService();
     }
 }
