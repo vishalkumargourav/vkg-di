@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import vkg.springframework.vkgdi.controllers.*;
+import vkg.springframework.vkgdi.services.PrototypeBean;
+import vkg.springframework.vkgdi.services.SingletonBean;
 
 @ComponentScan(basePackages = {"vkg.springframework.vkgdi", "vkg.springframework.pets"})
 @SpringBootApplication
@@ -40,6 +42,17 @@ public class VkgDiApplication {
 		System.out.println(">>> CS <<< :: Component Scan Example");
 		PetController petController = (PetController) ctx.getBean("petController");
 		System.out.println(petController.findBestPet());
+
+		// >>>>>>>> Demonstrating Spring Scope <<<<<<<
+		SingletonBean singletonBean1 = (SingletonBean) ctx.getBean("singletonBean");
+		System.out.println(singletonBean1.getMyScope());
+		SingletonBean singletonBean2 = (SingletonBean) ctx.getBean("singletonBean");
+		System.out.println(singletonBean2.getMyScope());
+
+		PrototypeBean prototypeBean1 = (PrototypeBean) ctx.getBean("prototypeBean");
+		System.out.println(prototypeBean1.getMyScope());
+		PrototypeBean prototypeBean2 = (PrototypeBean) ctx.getBean("prototypeBean");
+		System.out.println(prototypeBean2.getMyScope());
 	}
 
 }
