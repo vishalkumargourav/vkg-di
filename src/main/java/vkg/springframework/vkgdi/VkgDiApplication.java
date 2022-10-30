@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import vkg.springframework.vkgdi.controllers.*;
 
-@ComponentScan(basePackages = {"vkg.springframework.vkgdi", "vkg.springframework.vkgcs"})
+@ComponentScan(basePackages = {"vkg.springframework.vkgdi", "vkg.springframework.pets"})
 @SpringBootApplication
 public class VkgDiApplication {
 

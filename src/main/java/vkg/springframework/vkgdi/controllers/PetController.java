@@ -1,8 +1,8 @@
 package vkg.springframework.vkgdi.controllers;
 
 import org.springframework.stereotype.Controller;
-import vkg.springframework.vkgcs.CatPetService;
-import vkg.springframework.vkgcs.DogPetService;
+import vkg.springframework.pets.CatPetService;
+import vkg.springframework.pets.DogPetService;
 
 @Controller
 public class PetController {

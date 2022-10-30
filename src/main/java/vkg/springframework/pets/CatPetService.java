@@ -1,4 +1,4 @@
-package vkg.springframework.vkgcs;
+package vkg.springframework.pets;
 
 import org.springframework.stereotype.Service;
 
