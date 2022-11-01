@@ -1,0 +1,7 @@
+spring :
+  profiles :
+    active : dog,EN,qa
+vkg :
+  username : superuser
+  password : masterPassword
+  jdbcurl : someURLforDB
