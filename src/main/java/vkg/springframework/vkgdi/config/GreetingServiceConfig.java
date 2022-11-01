@@ -11,7 +11,6 @@ import vkg.springframework.vkgdi.services.ConstructorInjectedGreetingService;
 import vkg.springframework.vkgdi.services.PropertyInjectedGreetingService;
 import vkg.springframework.vkgdi.services.SetterInjectedGreetingService;
 
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:vkgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
