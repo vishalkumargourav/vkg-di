@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import vkg.springframework.vkgdi.controllers.*;
+import vkg.springframework.vkgdi.datasource.FakeDatasource;
 import vkg.springframework.vkgdi.services.PrototypeBean;
 import vkg.springframework.vkgdi.services.SingletonBean;
 
@@ -53,6 +54,13 @@ public class VkgDiApplication {
 		System.out.println(prototypeBean1.getMyScope());
 		PrototypeBean prototypeBean2 = (PrototypeBean) ctx.getBean("prototypeBean");
 		System.out.println(prototypeBean2.getMyScope());
+
+		// **** External Properties Example *****
+		System.out.println("*** Demonstrating Using External Properties ***");
+		FakeDatasource fakeDatasource = (FakeDatasource) ctx.getBean("fakeDatasource");
+		System.out.println("Username = " + fakeDatasource.getUsername());
+		System.out.println("Password = " + fakeDatasource.getPassword());
+		System.out.println("JDBC URL = " + fakeDatasource.getJdbcurl());
 	}
 
 }

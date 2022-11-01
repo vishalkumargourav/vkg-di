@@ -1,15 +1,17 @@
 package vkg.springframework.vkgdi.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import vkg.springframework.pets.DogPetService;
 import vkg.springframework.pets.PetService;
 import vkg.springframework.pets.PetServiceFactory;
+import vkg.springframework.vkgdi.datasource.FakeDatasource;
 import vkg.springframework.vkgdi.repositories.EnglishGreetingRepository;
 import vkg.springframework.vkgdi.repositories.EnglishGreetingRepositoryImpl;
 import vkg.springframework.vkgdi.services.ConstructorInjectedGreetingService;
 import vkg.springframework.vkgdi.services.PropertyInjectedGreetingService;
 import vkg.springframework.vkgdi.services.SetterInjectedGreetingService;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:vkgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
@@ -51,5 +53,16 @@ public class GreetingServiceConfig {
     @Profile("cat")
     PetService catPetService(PetServiceFactory petServiceFactory){
         return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    FakeDatasource fakeDatasource(@Value("${vkg.username}") String username, @Value("${vkg.password}") String password, @Value("${vkg.jdbcurl}") String jdbcURL){
+        FakeDatasource fakeDatasource = new FakeDatasource();
+
+        fakeDatasource.setUsername(username);
+        fakeDatasource.setPassword(password);
+        fakeDatasource.setJdbcurl(jdbcURL);
+
+        return fakeDatasource;
     }
 }
