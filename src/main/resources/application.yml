@@ -1,7 +1,16 @@
 spring :
   profiles :
-    active : dog,EN,dev
+    active : dog,EN,prod
 vkg :
   username : superuser
   password : masterPassword
   jdbcurl : someURLforDB
+
+---
+
+spring :
+  profiles : prod
+vkg :
+  username: PRODuser
+  password: PRODPassword
+  jdbcurl: PRODURLforDB
