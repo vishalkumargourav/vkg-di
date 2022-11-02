@@ -55,7 +55,9 @@ public class GreetingServiceConfig {
     }
 
     @Bean
-    FakeDatasource fakeDatasource(@Value("${vkg.username}") String username, @Value("${vkg.password}") String password, @Value("${vkg.jdbcurl}") String jdbcURL){
+    FakeDatasource fakeDatasource(@Value("${vkg.username}") String username,
+                                  @Value("${vkg.password}") String password,
+                                  @Value("${vkg.jdbcurl}") String jdbcURL){
         FakeDatasource fakeDatasource = new FakeDatasource();
 
         fakeDatasource.setUsername(username);
