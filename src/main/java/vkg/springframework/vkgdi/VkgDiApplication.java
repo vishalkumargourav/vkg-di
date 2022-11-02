@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import vkg.springframework.vkgdi.config.VkgPropertyBindingConfig;
 import vkg.springframework.vkgdi.controllers.*;
 import vkg.springframework.vkgdi.datasource.FakeDatasource;
 import vkg.springframework.vkgdi.services.PrototypeBean;
@@ -61,6 +62,13 @@ public class VkgDiApplication {
 		System.out.println("Username = " + fakeDatasource.getUsername());
 		System.out.println("Password = " + fakeDatasource.getPassword());
 		System.out.println("JDBC URL = " + fakeDatasource.getJdbcurl());
+
+		// **** Property Binding Example ****
+		System.out.println("*** Demonstrating Property Binding Example ***");
+		VkgPropertyBindingConfig vkgPropertyBindingConfig = (VkgPropertyBindingConfig) ctx.getBean("vkgPropertyBindingConfig");
+		System.out.println("username : " + vkgPropertyBindingConfig.getUsername());
+		System.out.println("password : " + vkgPropertyBindingConfig.getPassword());
+		System.out.println("jdbcurl : " + vkgPropertyBindingConfig.getJdbcurl());
 	}
 
 }
