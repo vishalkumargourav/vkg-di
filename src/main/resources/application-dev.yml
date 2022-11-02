@@ -1,0 +1,4 @@
+vkg :
+  username : devuser
+  password : devPassword
+  jdbcurl : devURLforDB

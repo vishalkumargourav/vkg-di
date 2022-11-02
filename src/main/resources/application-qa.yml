@@ -1,0 +1,4 @@
+vkg :
+  username : QAuser
+  password : QAPassword
+  jdbcurl : QAURLforDB
