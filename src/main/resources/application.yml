@@ -1,6 +1,9 @@
 spring :
   profiles :
-    active : dog,EN,prod
+    active :
+      - dog
+      - EN
+      - qa
 vkg :
   username : superuser
   password : masterPassword
