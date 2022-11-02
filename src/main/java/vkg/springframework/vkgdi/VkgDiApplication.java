@@ -2,14 +2,17 @@ package vkg.springframework.vkgdi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import vkg.springframework.vkgdi.config.VkgConstructorBindingConfig;
 import vkg.springframework.vkgdi.config.VkgPropertyBindingConfig;
 import vkg.springframework.vkgdi.controllers.*;
 import vkg.springframework.vkgdi.datasource.FakeDatasource;
 import vkg.springframework.vkgdi.services.PrototypeBean;
 import vkg.springframework.vkgdi.services.SingletonBean;
 
+@EnableConfigurationProperties(VkgConstructorBindingConfig.class)
 @ComponentScan(basePackages = {"vkg.springframework.vkgdi", "vkg.springframework.pets"})
 @SpringBootApplication
 public class VkgDiApplication {
@@ -68,6 +71,12 @@ public class VkgDiApplication {
 		System.out.println("username : " + vkgPropertyBindingConfig.getUsername());
 		System.out.println("password : " + vkgPropertyBindingConfig.getPassword());
 		System.out.println("jdbcurl : " + vkgPropertyBindingConfig.getJdbcurl());
+
+		System.out.println("*** Demonstrating Constructor Property Binding Example ***");
+		VkgConstructorBindingConfig vkgConstructorBindingConfig = (VkgConstructorBindingConfig) ctx.getBean(VkgConstructorBindingConfig.class);
+		System.out.println("username : " + vkgConstructorBindingConfig.getUsername());
+		System.out.println("password : " + vkgConstructorBindingConfig.getPassword());
+		System.out.println("jdbcurl : " + vkgConstructorBindingConfig.getJdbcurl());
 	}
 
 }

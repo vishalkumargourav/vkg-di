@@ -55,12 +55,12 @@ public class GreetingServiceConfig {
     }
 
     @Bean
-    FakeDatasource fakeDatasource(VkgPropertyBindingConfig vkgPropertyBindingConfig){
+    FakeDatasource fakeDatasource(VkgConstructorBindingConfig vkgConstructorBindingConfig){
         FakeDatasource fakeDatasource = new FakeDatasource();
 
-        fakeDatasource.setUsername(vkgPropertyBindingConfig.getUsername());
-        fakeDatasource.setPassword(vkgPropertyBindingConfig.getPassword());
-        fakeDatasource.setJdbcurl(vkgPropertyBindingConfig.getJdbcurl());
+        fakeDatasource.setUsername(vkgConstructorBindingConfig.getUsername());
+        fakeDatasource.setPassword(vkgConstructorBindingConfig.getPassword());
+        fakeDatasource.setJdbcurl(vkgConstructorBindingConfig.getJdbcurl());
 
         return fakeDatasource;
     }
